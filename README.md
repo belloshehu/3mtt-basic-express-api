@@ -4,11 +4,11 @@
 
 This is an express API server with the following endpoints:
 
-1.  `GET` `/items` endpoint to fetch all items
-2.  `GET` `/item/:id` endpoint to fetch one item by Id
-3.  `POST` `/items` endpoint to create an item
-4.  `PUT` `/items:/id` endpoint to update an item by id
-5.  `DELETE` `/items/:id` endpoint to delete item by Id
+1.  `GET` `/users` endpoint to fetch all users
+2.  `GET` `/users/:id` endpoint to fetch one user by Id
+3.  `POST` `/user` endpoint to create an item
+4.  `PUT` `/users:/id` endpoint to update an user by id
+5.  `DELETE` `/users/:id` endpoint to delete user by Id
 
 The base router "/" returns "Hello world!"
 
@@ -16,41 +16,91 @@ The server has cors middleware which simply allow request from any origin and an
 
 ### Example
 
-Here is an example of response from the `GET` `http://localhost:3000/items` endpoint using postman:
+Here is an example of response from the `GET` `http://localhost:3000/users` endpoint using postman:
 
 ```
 [
     {
-        "id": 1,
-        "name": "John Doe",
-        "description": "Sample item 1"
-    },
-    {
-        "id": 2,
-        "name": "Jane Smith",
-        "description": "Sample item 2"
-    },
-    {
         "id": 3,
-        "name": "Alice Johnson",
-        "description": "Sample item 3"
+        "name": "Ben Ali",
+        "email": "bello@gmail.com",
+        "age": 23
     },
     {
         "id": 4,
-        "name": "Bob Brown",
-        "description": "Sample item 4"
-    },
-    {
-        "id": 5,
-        "name": "Charlie White",
-        "description": "Sample item 5"
+        "name": "James Ali",
+        "email": "jamesal@gmail.com",
+        "age": 23
     }
 ]
 ```
 
-### Code structure:
+Here is an example of response from the `GET` `http://localhost:3000/users/3` endpoint using postman:
 
-For modularity, the code was broken into server, controllers, services and routes.
+```
+    {
+        "id": 3,
+        "name": "Ben Ali",
+        "email": "bello@gmail.com",
+        "age": 23
+    },
+
+```
+
+Here is an example of response from the `PUT` `http://localhost:3000/users/3` endpoint using postman:
+
+```
+    {
+        "id": 3,
+        "name": "James Ali",
+        "email": "bello@gmail.com",
+        "age": 23
+    },
+
+```
+
+Here is an example of response from the `DELETE` `http://localhost:3000/users/3` endpoint using postman:
+
+```
+    {
+        "id": 3,
+        "name": "Ben Ali",
+        "email": "bello@gmail.com",
+        "age": 23
+    },
+
+```
+
+## Middlewares
+
+Two error middlewares were used:
+
+1. errorHandler:
+   For handling general errors
+
+```
+const errorHandler = (err, req, res, next) => {
+  console.error("Error:", err.message);
+
+  res.status(err.status || 500).json({
+    status: "error",
+    message: err.message || "Internal Server Error",
+  });
+};
+
+module.exports = errorHandler;
+```
+
+2. notFound:
+   To handle errors when requested route is not valid
+
+   ```
+    const notFoundError = (req, res, next) => {
+      res.status(404).send(`Route ${req.path} not found`);
+    };
+
+    module.exports = notFoundError;
+   ```
 
 ## Guide
 
