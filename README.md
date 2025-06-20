@@ -16,7 +16,7 @@ The server has cors middleware which simply allow request from any origin and an
 
 ### Example
 
-Here is an example of response from the `GET` `/items` endpoint:
+Here is an example of response from the `GET` `http://localhost:3000/items` endpoint using postman:
 
 ```
 [
