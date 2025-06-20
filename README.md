@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an express API server with the following endpoints:
+This is an express API server to perform CRUD on user resources in POSTRESQL database via the following endpoints:
 
 1.  `GET` `/users` endpoint to fetch all users
 2.  `GET` `/users/:id` endpoint to fetch one user by Id
@@ -13,6 +13,20 @@ This is an express API server with the following endpoints:
 The base router "/" returns "Hello world!"
 
 The server has cors middleware which simply allow request from any origin and any method
+
+### Creating User Table:
+
+Enter the follwing query into the QueryTool in the PgAdmin Application or via `SQL shell` to create users table with id, name, email and age fields.
+
+```
+  CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    age INTEGER
+  );
+
+```
 
 ### Example
 
