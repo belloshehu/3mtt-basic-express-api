@@ -111,3 +111,19 @@ module.exports = errorHandler;
 
 - Start the server:
   `npm start`
+
+## Postman Screenshots
+1. Create user:
+   <img width="1440" alt="create" src="https://github.com/user-attachments/assets/5ef429dc-27bc-4252-8541-505126ff7f7f" />
+
+2. Get all users
+   <img width="1440" alt="get all users" src="https://github.com/user-attachments/assets/0cfdf149-6136-412d-9e1c-105d8c0e76d9" />
+
+3. Get user by Id
+   <img width="1440" alt="get user by id" src="https://github.com/user-attachments/assets/29f71468-e21d-40d3-9dbb-afab35379724" />
+
+4. Delete user by Id
+   <img width="1440" alt="delete user" src="https://github.com/user-attachments/assets/1c060f7e-2437-4eb6-a805-f73c076a2b36" />
+
+5. Update user by Id
+<img width="1440" alt="update user" src="https://github.com/user-attachments/assets/8e5b0fb9-10df-40e7-8fb8-5df874779332" />
